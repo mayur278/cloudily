@@ -1,1 +1,216 @@
-hello mayur
+
+Git & GitHub Practical Notes (EC2 Ubuntu)
+Aim
+To install Git on an EC2 instance, create a local repository, connect it with GitHub, and push code to a remote repository.
+ 1.⁠ ⁠Launch EC2 Instance
+Steps:
+Login to AWS Console
+Open EC2 Dashboard
+Click Launch Instance
+Select Ubuntu
+Create/Select Key Pair
+Configure Security Group
+Launch Instance
+Connect to Instance
+ 2.⁠ ⁠Install Git
+Update packages:
+Bash
+sudo apt update
+Install Git:
+Bash
+sudo apt install git -y
+Verify Installation:
+Bash
+git --version
+Example Output:
+Bash
+git version 2.x.x
+ 3.⁠ ⁠Create Working Directory
+Create folder:
+Bash
+mkdir b8
+Move into folder:
+Bash
+cd b8
+Check current directory:
+Bash
+pwd
+ 4.⁠ ⁠Initialize Git Repository
+Bash
+git init
+Purpose:
+Converts a normal directory into a Git repository.
+Verify:
+Bash
+git status
+ 5.⁠ ⁠Create File
+Create sample file:
+Bash
+echo "Hello GitHub" > hello.txt
+View file:
+Bash
+cat hello.txt
+Check files:
+Bash
+ls
+ 6.⁠ ⁠Check Git Status
+Bash
+git status
+Output:
+Plain text
+Untracked files:
+hello.txt
+Meaning:
+Git can see the file but is not tracking it yet.
+ 7.⁠ ⁠Add File to Staging Area
+Single file:
+Bash
+git add hello.txt
+All files:
+Bash
+git add .
+Verify:
+Bash
+git status
+Output:
+Plain text
+Changes to be committed
+ 8.⁠ ⁠Configure Git User
+Set Username:
+Bash
+git config --global user.name "Mayur278"
+Set Email:
+Bash
+git config --global user.email "mayurcloudblitz@outlook.com"
+Check Configuration:
+Bash
+git config --list
+ 9.⁠ ⁠Commit Changes
+Create first commit:
+Bash
+git commit -m "This is my first commit"
+Purpose:
+Saves a snapshot of the project.
+Example Output:
+Plain text
+1 file changed
+create mode 100644 hello.txt
+10.⁠ ⁠View Commit History
+Detailed log:
+Bash
+git log
+Short log:
+Bash
+git log --oneline
+Purpose:
+Displays commit history.
+11.⁠ ⁠Remove File from Staging Area
+Bash
+git rm --cached hello.txt
+Purpose:
+Removes file from staging area without deleting it locally.
+12.⁠ ⁠Create GitHub Repository
+Steps:
+Login to GitHub
+Click New Repository
+Repository Name: cloudily
+Visibility: Public
+Click Create Repository
+13.⁠ ⁠Connect Local Repository to GitHub
+Add Remote Repository:
+Bash
+git remote add origin https://github.com/mayur278/cloudily.git
+Verify:
+Bash
+git remote -v
+Output:
+Plain text
+origin  https://github.com/mayur278/cloudily.git (fetch)
+origin  https://github.com/mayur278/cloudily.git (push)
+14.⁠ ⁠Rename Branch
+Rename master branch to main:
+Bash
+git branch -M main
+Verify:
+Bash
+git branch
+Output:
+Plain text
+•⁠  ⁠main
+15.⁠ ⁠Push Code to GitHub
+Bash
+git push -u origin main
+or
+Bash
+git push --set-upstream origin main
+Purpose:
+Uploads local code to GitHub repository.
+16.⁠ ⁠Authentication
+GitHub does not support password authentication.
+Use:
+Personal Access Token (PAT)
+When prompted:
+Plain text
+Username:
+mayur278
+Plain text
+Password:
+<Personal Access Token>
+17.⁠ ⁠Verify on GitHub
+Repository should contain:
+Plain text
+hello.txt
+This is my first commit
+This confirms successful push.
+Important Git Commands
+Command
+Purpose
+git init
+Initialize repository
+git status
+Check repository status
+git add .
+Add all files
+git add filename
+Add specific file
+git commit -m "message"
+Create commit
+git log
+View detailed history
+git log --oneline
+View short history
+git branch
+View branches
+git branch -M main
+Rename branch
+git remote -v
+View remote repositories
+git push
+Upload code to GitHub
+git pull
+Download latest changes
+git revert commit_id
+Undo a commit
+Git Workflow Diagram
+Plain text
+Working Directory
+       │
+       ▼
+   git add
+       │
+       ▼
+ Staging Area
+       │
+       ▼
+ git commit
+       │
+       ▼
+ Local Repository
+       │
+       ▼
+  git push
+       │
+       ▼
+ GitHub Repository
+Conclusion
+Successfully installed Git on an EC2 Ubuntu instance, created a local repository, committed changes, connected the repository to GitHub, and pushed code to the remote repository using Git commands
