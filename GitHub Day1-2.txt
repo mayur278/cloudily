@@ -213,4 +213,4 @@ Working Directory
        ▼
  GitHub Repository
 Conclusion
-Successfully installed Git on an EC2 Ubuntu instance, created a local repository, committed changes, connected the repository to GitHub, and pushed code to the remote repository using Git commands
+We Successfully installed Git on an EC2 Ubuntu instance, created a local repository, committed changes, connected the repository to GitHub, and pushed code to the remote repository using Git commands
