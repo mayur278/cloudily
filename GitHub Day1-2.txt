@@ -1,4 +1,3 @@
-
 Git & GitHub Practical Notes (EC2 Ubuntu)
 Aim
 To install Git on an EC2 instance, create a local repository, connect it with GitHub, and push code to a remote repository.
